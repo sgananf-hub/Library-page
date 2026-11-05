@@ -56,13 +56,13 @@ export default function Community() {
     <div className="community-layout">
       <div className="community-users"><h3>Usuarios</h3><p className="community-hint">Selecciona una persona para ver sus publicaciones.</p>
         {usersState === 'loading' && <p role="status">Cargando usuarios...</p>}
-        {usersState === 'error' && <div role="alert"><p>No se pudieron cargar los usuarios. Revisa tu conexión.</p><button className="community-retry" onClick={() => setUsersRetry(value => value + 1)}>Reintentar</button></div>}
+        {usersState === 'error' && <div role="alert"><p>No pudimos cargar los usuarios. Revisa tu conexión a internet y vuelve a intentarlo.</p><button className="community-retry" onClick={() => setUsersRetry(value => value + 1)}>Reintentar</button></div>}
         {usersState === 'success' && <div className="user-list">{users.map(user => <button type="button" key={user.id} className={`user-card ${selectedId === String(user.id) ? 'selected' : ''}`} onClick={() => setSelectedId(String(user.id))} aria-pressed={selectedId === String(user.id)}><strong>{user.name}</strong><span>{user.email}</span><span>{user.company.name}</span></button>)}</div>}
       </div>
       <div className="community-posts" aria-live="polite"><span className="section-kicker">PUBLICACIONES</span><h3>{selectedUser ? selectedUser.name : 'Elige un usuario'}</h3>
         {postsState === 'idle' && <p>Sus publicaciones aparecerán aquí.</p>}
         {postsState === 'loading' && <p role="status">Cargando publicaciones...</p>}
-        {postsState === 'error' && <div role="alert"><p>No se pudieron cargar las publicaciones. Revisa tu conexión.</p><button className="community-retry" onClick={() => setPostsRetry(value => value + 1)}>Reintentar</button></div>}
+        {postsState === 'error' && <div role="alert"><p>No pudimos cargar las publicaciones. Revisa tu conexión a internet y vuelve a intentarlo.</p><button className="community-retry" onClick={() => setPostsRetry(value => value + 1)}>Reintentar</button></div>}
         {postsState === 'success' && (posts.length ? <div className="post-list">{posts.map(post => <article className="post-card" key={post.id}><h4>{post.title}</h4><p>{post.body}</p></article>)}</div> : <p>Este usuario no tiene publicaciones.</p>)}
       </div>
     </div>

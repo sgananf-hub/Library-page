@@ -19,4 +19,7 @@ Abre la dirección que aparece en la terminal. Para comprobar la compilación ej
 
 ## Publicación
 
+Sitio publicado: https://dagog11.github.io/directorio-usuarios/
+
+
 GitHub Actions construye el proyecto con Vite y publica la carpeta generada en GitHub Pages. La aplicación consulta `https://jsonplaceholder.typicode.com` mediante HTTPS.
